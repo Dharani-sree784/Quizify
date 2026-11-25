@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quizify | M.Sc. Computer Science</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" onclick="goHome();return false;"><span class="brand-mark">Q</span> quizify<span class="brand-dot">.</span></a>
+    <div class="top-right"><span class="live-dot"></span> M.Sc. Computer Science</div>
+  </header>
+
+  <main class="container">
+    <section id="homeView">
+      <div class="hero">
+        <div class="eyebrow">YOUR PERSONAL STUDY ARENA</div>
+        <h1>Learn smarter.<br><span>Score higher.</span></h1>
+        <p>Choose your semester, pick a subject, and test your knowledge with syllabus-based MCQs.</p>
+        <div class="hero-stats">
+          <div><strong id="subjectCount">13</strong><small>SUBJECTS</small></div>
+          <div><strong>4</strong><small>OPTIONS EACH</small></div>
+          <div><strong>MCQ</strong><small>QUIZ FORMAT</small></div>
+        </div>
+      </div>
+      <div class="section-heading">
+        <div><div class="eyebrow">SELECT YOUR SUBJECT</div><h2>Explore courses</h2></div>
+        <span class="small-note">Based on your syllabus</span>
+      </div>
+      <div id="semesterSections"></div>
+    </section>
+
+    <section id="quizView" class="hidden">
+      <button class="back-link" onclick="backToSubjects()">← All subjects</button>
+      <div class="quiz-top">
+        <div><div class="eyebrow" id="quizCode"></div><h2 id="quizSubject"></h2><p id="quizTopics"></p></div>
+        <div class="question-count" id="questionCount">01 / 05</div>
+      </div>
+      <div class="progress-track"><div id="progressBar"></div></div>
+      <div class="quiz-card">
+        <div class="question-label">QUESTION <span id="questionNumber">01</span></div>
+        <h3 id="questionText"></h3>
+        <div id="optionsList" class="options-list"></div>
+        <div id="feedback" class="feedback hidden"></div>
+        <div class="quiz-actions">
+          <button class="btn secondary" id="previousBtn" onclick="previousQuestion()">Previous</button>
+          <button class="btn primary" id="nextBtn" onclick="nextQuestion()" disabled>Next question →</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="resultView" class="hidden">
+      <div class="result-card">
+        <div class="result-icon">✓</div>
+        <div class="eyebrow">QUIZ COMPLETED</div>
+        <h2 id="resultTitle">Great work!</h2>
+        <p id="resultSubtitle"></p>
+        <div class="score-circle"><strong id="scoreValue">0%</strong><span>YOUR SCORE</span></div>
+        <div class="result-stats">
+          <div><strong id="correctCount">0</strong><span>Correct</span></div>
+          <div><strong id="wrongCount">0</strong><span>Incorrect</span></div>
+          <div><strong id="totalCount">0</strong><span>Total</span></div>
+        </div>
+        <div class="result-actions">
+          <button class="btn primary" onclick="restartQuiz()">Try again</button>
+          <button class="btn secondary" onclick="showReview()">Review answers</button>
+          <button class="btn text-btn" onclick="goHome()">Choose another subject</button>
+        </div>
+      </div>
+      <div id="reviewPanel" class="review-panel hidden"></div>
+    </section>
+  </main>
+  <footer>QUIZIFY <span>·</span> Built for focused learning</footer>
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
